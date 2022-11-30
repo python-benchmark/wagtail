@@ -1,0 +1,28 @@
+$grid-gutter-width: 30px;
+$type-button-padding-vertical: 10px;
+$type-button-padding-horizontal: 10px;
+$add-transition-duration: 0.3s;
+$border-radius: 3px;
+$add-panel-gutter: 8px;
+
+@import 'scss/components/c-sf-add-button';
+@import 'scss/components/c-sf-add-panel';
+@import 'scss/components/c-sf-button';
+
+[aria-expanded='true'] + .w-panel__heading .c-sf-block__title {
+  @apply w-sr-only;
+}
+
+// Only hide the block type if the field is collapsed *and* the title isn’t empty.
+[aria-expanded='false']
+  + .w-panel__heading
+  .c-sf-block__title:not(:empty)
+  + .c-sf-block__type {
+  display: none;
+}
+
+.c-sf-help .help {
+  // StreamField block help text is above the blocks rather than below.
+  margin-top: 0;
+  margin-bottom: theme('spacing.[1.5]');
+}
